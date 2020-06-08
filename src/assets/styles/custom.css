@@ -1,0 +1,51 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+div,
+span,
+textarea,
+input {
+  font-family: sans-serif;
+  outline: none !important;
+}
+body {
+  margin: 0;
+  background-color: var(--color-primary) !important;
+}
+
+.board {
+  width: 100%;
+  height: 100vh;
+  padding: 3rem 1rem;
+}
+.board--list {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(39, 39, 39, 0.5);
+}
+.board--list-header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.board--list-card {
+  width: 100px;
+  background-color: white;
+}
+.board--list-body {
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
