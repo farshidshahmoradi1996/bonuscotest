@@ -5,9 +5,10 @@ import { useDispatch } from "react-redux";
 interface Props {
   info: Todo;
   list_id: number;
+  onCheckChange(checked: boolean): void;
 }
 
-const TodoCard: React.FC<Props> = ({ info, list_id }) => {
+const TodoCard: React.FC<Props> = ({ info, list_id, onCheckChange }) => {
   const dispatch = useDispatch();
   const toggleCompeleted = () => {
     const type = TodosActionType.TOGGLE_COMPLETED_STATUS;
@@ -17,7 +18,7 @@ const TodoCard: React.FC<Props> = ({ info, list_id }) => {
   return (
     <div className="board--list-card ">
       <div style={{ flex: 2 }} className="flex-center">
-        <Checkbox onChange={() => {}}></Checkbox>
+        <Checkbox onChange={(e) => onCheckChange(e.target.checked)}></Checkbox>
       </div>
       <div style={{ flex: 6, alignItems: "center" }}>
         <p

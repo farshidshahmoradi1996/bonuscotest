@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoList } from "types/todos";
-import { TodoListBox } from "components";
+import { TodoListBox, NewList } from "components";
 interface Props {
   data: Array<TodoList>;
 }
@@ -13,6 +13,7 @@ const Board: React.FC<Props> = ({ data }) => {
       {data.map((item) => (
         <TodoListBox data={item} key={item.id.toString()} />
       ))}
+      <NewList />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MoreOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { TodoList, TodosEditFormValue, TodosActionType } from "types/todos";
-import EditListModal from "./EditListModal";
+import TodoInfoModal from "./TodoInfoModal";
 import { useDispatch } from "react-redux";
 interface Props {
   info?: TodoList;
@@ -25,6 +25,14 @@ const TodoListHeader: React.FC<Props> = ({ info }) => {
     dispatch({ type, payload });
     closeModal();
   };
+  const deleteTodoList = () => {
+    const type = TodosActionType.DELETE_LIST;
+    const payload = {
+      id: info?.id,
+    };
+    dispatch({ type, payload });
+    closeModal();
+  };
   return (
     <>
       <div className="board--list-header">
@@ -36,11 +44,13 @@ const TodoListHeader: React.FC<Props> = ({ info }) => {
           onClick={() => setIsEditModalVisible(true)}
         />
       </div>
-      <EditListModal
+      <TodoInfoModal
         isVisible={isEditModalVisible}
         info={info}
         onCancel={closeModal}
         onOk={(info) => updateTodo(info)}
+        newList={false}
+        onDelete={deleteTodoList}
       />
     </>
   );

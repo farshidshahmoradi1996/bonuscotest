@@ -6,13 +6,17 @@ interface Props {
   isVisible: boolean;
   onCancel(): void;
   onOk(info: TodosEditFormValue): void;
+  newList: boolean;
+  onDelete?(): void;
 }
 
-const EditListModal: React.FC<Props> = ({
+const TodoInfoModal: React.FC<Props> = ({
   info,
   isVisible,
   onCancel,
   onOk,
+  newList = false,
+  onDelete = null,
 }) => {
   const onFinish = (values: TodosEditFormValue) => {
     onOk(values);
@@ -24,7 +28,7 @@ const EditListModal: React.FC<Props> = ({
       onCancel={onCancel}
       okButtonProps={{ hidden: true }}
       cancelButtonProps={{ hidden: true }}
-      title={`edit ${info?.name}`}
+      title={newList ? "Create New List" : `edit ${info?.name}`}
       destroyOnClose
     >
       <Form
@@ -56,9 +60,19 @@ const EditListModal: React.FC<Props> = ({
           <Button type="primary" htmlType="submit">
             Save
           </Button>
+          {typeof onDelete === "function" && (
+            <Button
+              type="ghost"
+              danger
+              style={{ marginLeft: 10 }}
+              onClick={onDelete}
+            >
+              Delete
+            </Button>
+          )}
         </Form.Item>
       </Form>
     </Modal>
   );
 };
-export default EditListModal;
+export default TodoInfoModal;
