@@ -1,7 +1,10 @@
 import React from "react";
+import { Checkbox, Button, message } from "antd";
+
+//local
 import { Todo, TodosActionType } from "types/todos";
-import { Checkbox, Button } from "antd";
 import { useDispatch } from "react-redux";
+
 interface Props {
   info: Todo;
   list_id: number;
@@ -10,11 +13,15 @@ interface Props {
 
 const TodoCard: React.FC<Props> = ({ info, list_id, onCheckChange }) => {
   const dispatch = useDispatch();
+
+  //voids
   const toggleCompeleted = () => {
     const type = TodosActionType.TOGGLE_COMPLETED_STATUS;
     const payload = { list_id, item_id: info.id };
     dispatch({ type, payload });
+    message.success(`${info.title} status change!`);
   };
+
   return (
     <div className="board--list-card ">
       <div style={{ flex: 2 }} className="flex-center">

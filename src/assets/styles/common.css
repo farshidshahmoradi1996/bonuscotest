@@ -43,7 +43,9 @@
 .w-full {
   width: 100%;
 }
-
+.h-screen {
+  height: 100vh;
+}
 .fixed {
   position: fixed;
 }

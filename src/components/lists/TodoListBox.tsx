@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+
+//local
 import { TodoList, Todo } from "types/todos";
 import { TodoCard, NewCard } from "components";
 import TodoListHeader from "./TodoListHeader";
-import { getFromNowByUnixTime } from "utils";
-
 import ActionButton from "./ActionButton";
 import ListDateTime from "./ListDateTime";
+
 interface Props {
   data: TodoList;
 }
 
 const TodoListBox: React.FC<Props> = ({ data }) => {
+  //hooks
+  //take checked items in state
   const [checkedItemsId, setCheckedItemsIs] = useState<number[]>([]);
 
   const handleCheckedItemsId = (checked: boolean, info: Todo) => {
@@ -20,8 +23,10 @@ const TodoListBox: React.FC<Props> = ({ data }) => {
   };
 
   const onActionCompelete = () => {
+    //action comepelte decheck all
     setCheckedItemsIs([]);
   };
+
   return (
     <div className="board--list">
       <TodoListHeader info={data} />

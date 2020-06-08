@@ -1,6 +1,8 @@
 import React from "react";
-import { TodoList, TodosEditFormValue } from "types/todos";
 import { Form, Input, Button, Modal } from "antd";
+import { TodoList, TodosEditFormValue } from "types/todos";
+
+//local
 interface Props {
   info?: TodoList;
   isVisible: boolean;

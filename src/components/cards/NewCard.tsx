@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { Input, Button, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
+
+//local
 import { TodosActionType } from "types/todos";
 import { useTodosList } from "hooks";
 
 interface Props {
   list_id: number;
 }
+
 const NewCard: React.FC<Props> = ({ list_id }) => {
+  //hooks
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const { todos_list } = useTodosList();
+
+  //voids
   const addNewItem = () => {
     if (!title) {
       message.error("Item name cannot be empty");
@@ -32,6 +38,7 @@ const NewCard: React.FC<Props> = ({ list_id }) => {
     setTitle("");
     message.success("new Item Added");
   };
+
   return (
     <div className="board--list-card ">
       <Input

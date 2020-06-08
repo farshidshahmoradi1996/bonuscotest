@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import TodoInfoModal from "components/lists/TodoInfoModal";
-import { TodosEditFormValue, TodosActionType, TodoList } from "types/todos";
 import { useDispatch } from "react-redux";
 
+//local
+import TodoInfoModal from "components/lists/TodoInfoModal";
+import { TodosEditFormValue, TodosActionType, TodoList } from "types/todos";
 import { useTodosList } from "hooks";
+
 const NewList = () => {
+  //hooks
   const dispatch = useDispatch();
   const { todos_list } = useTodosList();
   const [isNewListModalVisible, setIsNewListModalVisible] = useState(false);
+
+  //voids
   const closeModal = () => {
     setIsNewListModalVisible(false);
   };

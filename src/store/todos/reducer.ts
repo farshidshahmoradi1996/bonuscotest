@@ -63,7 +63,7 @@ export default function (
       todos_list[list_index].todos[todo_index].completed = !todos_list[
         list_index
       ].todos[todo_index]?.completed;
-
+      todos_list[list_index].last_update_date = new Date().getTime();
       return {
         ...state,
         todos_list,
@@ -76,17 +76,13 @@ export default function (
       const { todos } = todos_list[list_index];
       const newTodos = [...todos, { completed, title, id }];
       todos_list[list_index].todos = newTodos;
+      todos_list[list_index].last_update_date = new Date().getTime();
       return {
         ...state,
         todos_list,
       };
     }
-    case TodosActionType.ADD_NEW_LIST: {
-      return {
-        ...state,
-        todos_list: [...state.todos_list, action?.payload],
-      };
-    }
+
     case TodosActionType.DELETE_LIST: {
       const { todos_list } = state;
       const { id } = action.payload;
@@ -106,6 +102,7 @@ export default function (
       todos_list[index].todos = todos_list[index].todos.filter(
         (_) => !todos_id.includes(_.id)
       );
+      todos_list[index].last_update_date = new Date().getTime();
       return {
         ...state,
         todos_list,
