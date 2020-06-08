@@ -14,7 +14,7 @@ export function* watchFetchAllTodos() {
     yield put({ type: TodosActionType.API_TODO_SUCCESS });
     //save new todo list
     //server return too much todos :| slice array :)
-    const todos = response.slice(0, 50);
+    const todos = response.slice(0, 10);
     const nowDateTime = new Date();
     const todosList: TodoList = {
       id: 1,

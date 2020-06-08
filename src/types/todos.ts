@@ -8,7 +8,7 @@ export interface Todo {
 
 export interface TodoList {
   id: number;
-  todos?: Array<Todo>;
+  todos: Array<Todo>;
   name?: string;
   description?: string;
   created_date?: number;
@@ -33,6 +33,8 @@ export enum TodosActionType {
   API_TODO_FAILED = "API_TODO_FAILED",
   API_TODO_SUCCESS = "API_TODO_SUCCESS",
   UPDATE_TODO_LIST_INFO = "UPDATE_TODO_LIST_INFO",
+  TOGGLE_COMPLETED_STATUS = "TOGGLE_COMPLETED_STATUS",
+  REPLACE_TODO_IN_LIST = "REPLACE_TODO_IN_LIST",
 }
 
 export interface TodosEditFormValue {

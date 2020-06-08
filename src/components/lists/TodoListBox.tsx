@@ -12,7 +12,7 @@ const TodoListBox: React.FC<Props> = ({ data }) => {
       <TodoListHeader info={data} />
       <div className="board--list-body">
         {data?.todos?.map((todo) => (
-          <TodoCard info={todo} key={todo?.id?.toString()} />
+          <TodoCard info={todo} key={todo?.id?.toString()} list_id={data.id} />
         ))}
       </div>
       <div style={{ flex: 1 }}></div>
