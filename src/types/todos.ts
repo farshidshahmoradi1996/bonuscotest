@@ -32,6 +32,7 @@ export enum TodosActionType {
   API_TODO_REQUESTED = "API_TODO_REQUESTED",
   API_TODO_FAILED = "API_TODO_FAILED",
   API_TODO_SUCCESS = "API_TODO_SUCCESS",
+  UPDATE_TODO_LIST_INFO = "UPDATE_TODO_LIST_INFO",
 }
 
 export interface TodosEditFormValue {
