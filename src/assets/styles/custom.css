@@ -16,6 +16,7 @@ input {
 }
 p {
   margin: 0 !important;
+  word-break: break-all;
 }
 body {
   margin: 0;
