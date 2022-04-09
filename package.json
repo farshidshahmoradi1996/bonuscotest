@@ -16,7 +16,7 @@
     "@types/redux-logger": "^3.0.8",
     "antd": "^4.3.2",
     "craco-less": "^1.17.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
